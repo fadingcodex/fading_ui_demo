@@ -1,0 +1,21 @@
+name: fading_ui_demo
+description: "Showcase app for the fading_ui component library."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  fading_ui:
+    path: ../../fading_ui/fading_ui
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
