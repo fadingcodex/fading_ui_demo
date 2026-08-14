@@ -296,36 +296,36 @@ FadingSwitch(
         ),
         const SizedBox(height: 14),
         _ShowcaseSection(
-          title: 'FadingSelect (Multi)',
+          title: 'FadingMultiSelect',
           sectionId: 'select-multi',
           visibleSections: visibleSections,
           summary:
-              'Dropdown multiseleccion para combinar canales y construir filtros compuestos.',
-          tags: const <String>['selection', 'select', 'multi'],
-          preview: FadingSelect<String>(
+              'Selector multiseleccion para combinar canales y construir filtros compuestos.',
+          tags: const <String>['selection', 'multi-select', 'filters'],
+          preview: FadingMultiSelect<String>(
             label: 'Dispatch channels',
             values: selectedChannels,
             onChanged: onSelectChanged,
-            options: const <FadingSelectOption<String>>[
-              FadingSelectOption<String>(
+            options: const <FadingMultiSelectOption<String>>[
+              FadingMultiSelectOption<String>(
                 value: 'Alpha',
                 label: 'Alpha - Near field',
               ),
-              FadingSelectOption<String>(
+              FadingMultiSelectOption<String>(
                 value: 'Beta',
                 label: 'Beta - Relay mesh',
               ),
-              FadingSelectOption<String>(
+              FadingMultiSelectOption<String>(
                 value: 'Gamma',
                 label: 'Gamma - Deep route',
               ),
-              FadingSelectOption<String>(
+              FadingMultiSelectOption<String>(
                 value: 'Delta',
                 label: 'Delta - Orbital lock',
               ),
             ],
           ),
-          code: '''FadingSelect<String>(
+          code: '''FadingMultiSelect<String>(
   label: 'Dispatch channels',
   values: _selectedChannels,
   onChanged: (List<String> values) {
@@ -333,11 +333,11 @@ FadingSwitch(
       _selectedChannels = values;
     });
   },
-  options: const <FadingSelectOption<String>>[
-    FadingSelectOption(value: 'Alpha', label: 'Alpha - Near field'),
-    FadingSelectOption(value: 'Beta', label: 'Beta - Relay mesh'),
-    FadingSelectOption(value: 'Gamma', label: 'Gamma - Deep route'),
-    FadingSelectOption(value: 'Delta', label: 'Delta - Orbital lock'),
+  options: const <FadingMultiSelectOption<String>>[
+    FadingMultiSelectOption(value: 'Alpha', label: 'Alpha - Near field'),
+    FadingMultiSelectOption(value: 'Beta', label: 'Beta - Relay mesh'),
+    FadingMultiSelectOption(value: 'Gamma', label: 'Gamma - Deep route'),
+    FadingMultiSelectOption(value: 'Delta', label: 'Delta - Orbital lock'),
   ],
 )''',
         ),
