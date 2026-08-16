@@ -3,6 +3,7 @@ part of 'main.dart';
 enum DemoPage {
   textField('Text Field'),
   slider('Slider'),
+  rangeSlider('Range Slider'),
   checkbox('Checkbox'),
   switchControl('Switch'),
   tabBar('Tab Bar'),
@@ -70,6 +71,16 @@ const Map<DemoPage, _DemoPageMeta> _demoPageMeta = <DemoPage, _DemoPageMeta>{
     category: 'Formularios',
     status: 'STABLE',
     exampleCount: 2,
+    tags: <String>['input', 'range', 'control'],
+  ),
+  DemoPage.rangeSlider: _DemoPageMeta(
+    section: 'FORMULARIOS',
+    description: 'Control de intervalo con dos limites y feedback visual.',
+    selector: 'fd-ui-range-slider',
+    widgetClass: 'FadingRangeSlider',
+    category: 'Formularios',
+    status: 'STABLE',
+    exampleCount: 1,
     tags: <String>['input', 'range', 'control'],
   ),
   DemoPage.checkbox: _DemoPageMeta(

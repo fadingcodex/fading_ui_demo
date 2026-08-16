@@ -28,6 +28,8 @@ class _FadingDemoAppState extends State<FadingDemoApp> {
   bool _checkboxValue = true;
   bool _switchValue = false;
   double _sliderValue = 42;
+  double _rangeSliderStart = 20;
+  double _rangeSliderEnd = 80;
   String _selectedSignal = 'Alpha';
   String _selectedChannel = 'Beta';
   List<String> _selectedChannels = <String>['Alpha'];
@@ -298,6 +300,21 @@ class _FadingDemoAppState extends State<FadingDemoApp> {
             setState(() {
               _sliderValue = value;
               _status = 'Drive intensity: ${value.round()}%';
+            });
+          },
+        );
+      case DemoPage.rangeSlider:
+        return _RangeSliderPage(
+          page: _activePage,
+          startValue: _rangeSliderStart,
+          endValue: _rangeSliderEnd,
+          visibleSections: const <String>{'range-slider'},
+          onChanged: (RangeValues value) {
+            setState(() {
+              _rangeSliderStart = value.start;
+              _rangeSliderEnd = value.end;
+              _status =
+                  'Selected range: ${value.start.round()}% - ${value.end.round()}%';
             });
           },
         );

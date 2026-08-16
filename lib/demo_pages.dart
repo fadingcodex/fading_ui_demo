@@ -88,6 +88,72 @@ class _InputsPage extends StatelessWidget {
   }
 }
 
+class _RangeSliderPage extends StatelessWidget {
+  const _RangeSliderPage({
+    required this.page,
+    required this.startValue,
+    required this.endValue,
+    required this.onChanged,
+    this.visibleSections,
+  });
+
+  final DemoPage page;
+  final double startValue;
+  final double endValue;
+  final ValueChanged<RangeValues> onChanged;
+  final Set<String>? visibleSections;
+
+  @override
+  Widget build(BuildContext context) {
+    final FadingThemeData theme = FadingThemeScope.of(context);
+
+    return _DocsPageLayout(
+      page: page,
+      children: <Widget>[
+        _ShowcaseSection(
+          title: 'FadingRangeSlider',
+          sectionId: 'range-slider',
+          visibleSections: visibleSections,
+          summary:
+              'Control de intervalo para definir limites minimos y maximos con respuesta visual clara.',
+          tags: const <String>['input', 'range', 'control'],
+          preview: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              FadingRangeSlider(
+                label: 'Telemetry range',
+                min: 0,
+                max: 100,
+                startValue: startValue,
+                endValue: endValue,
+                onChanged: onChanged,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'Selected range: ${startValue.round()}% - ${endValue.round()}%',
+                style: theme.bodyMedium.copyWith(color: theme.accentStrong),
+              ),
+            ],
+          ),
+          code: '''FadingRangeSlider(
+  label: 'Telemetry range',
+  min: 0,
+  max: 100,
+  startValue: _rangeSliderStart,
+  endValue: _rangeSliderEnd,
+  onChanged: (RangeValues value) {
+    setState(() {
+      _rangeSliderStart = value.start;
+      _rangeSliderEnd = value.end;
+    });
+  },
+)''',
+        ),
+      ],
+    );
+  }
+}
+
 class _SelectionPage extends StatelessWidget {
   const _SelectionPage({
     required this.page,
