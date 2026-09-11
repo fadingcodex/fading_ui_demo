@@ -1732,6 +1732,93 @@ FadingBadge(
   }
 }
 
+class _InlineBannerPage extends StatelessWidget {
+  const _InlineBannerPage({required this.page, this.visibleSections});
+
+  final DemoPage page;
+  final Set<String>? visibleSections;
+
+  @override
+  Widget build(BuildContext context) {
+    return _DocsPageLayout(
+      page: page,
+      children: <Widget>[
+        _ShowcaseSection(
+          title: 'FadingInlineBanner (Default)',
+          sectionId: 'inline-banner-default',
+          visibleSections: visibleSections,
+          summary:
+              'Aviso inline para mensajes contextuales dentro de contenido, formularios y dashboards.',
+          tags: const <String>['banner', 'inline', 'status'],
+          preview: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              FadingInlineBanner(
+                title: 'Network drift detected',
+                message:
+                    'The upstream queue is falling behind. The sync will retry automatically.',
+                tone: FadingInlineBannerTone.warning,
+              ),
+              SizedBox(height: 12),
+              FadingInlineBanner(
+                title: 'All systems healthy',
+                message:
+                    'No action is required. Readings remain within expected bands.',
+                tone: FadingInlineBannerTone.success,
+              ),
+            ],
+          ),
+          code: '''FadingInlineBanner(
+  title: 'Network drift detected',
+  message: 'The upstream queue is falling behind. The sync will retry automatically.',
+  tone: FadingInlineBannerTone.warning,
+)
+
+FadingInlineBanner(
+  title: 'All systems healthy',
+  message: 'No action is required. Readings remain within expected bands.',
+  tone: FadingInlineBannerTone.success,
+)''',
+        ),
+        const SizedBox(height: 14),
+        _ShowcaseSection(
+          title: 'FadingInlineBanner (Action + dismiss)',
+          sectionId: 'inline-banner-action',
+          visibleSections: visibleSections,
+          summary:
+              'Permite mensajes con accion de seguimiento y cierre manual sin perder el contexto de la vista.',
+          tags: const <String>['banner', 'action', 'dismiss'],
+          preview: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              FadingInlineBanner(
+                title: 'Update available',
+                message:
+                    'Deploy the workflow package to apply the latest schema fixes.',
+                tone: FadingInlineBannerTone.neutral,
+                action: FadingButton(label: 'Review', onPressed: () {}),
+                dismissible: true,
+                onDismiss: () {},
+              ),
+            ],
+          ),
+          code: '''FadingInlineBanner(
+  title: 'Update available',
+  message: 'Deploy the workflow package to apply the latest schema fixes.',
+  tone: FadingInlineBannerTone.neutral,
+  action: FadingButton(
+    label: 'Review',
+    onPressed: () {},
+  ),
+  dismissible: true,
+  onDismiss: () {},
+)''',
+        ),
+      ],
+    );
+  }
+}
+
 class _ShowcaseSection extends StatelessWidget {
   const _ShowcaseSection({
     required this.title,

@@ -24,7 +24,8 @@ enum DemoPage {
   accordion('Accordion'),
   card('Card'),
   surface('Surface'),
-  badge('Badge');
+  badge('Badge'),
+  inlineBanner('Inline Banner');
 
   const DemoPage(this.label);
   final String label;
@@ -292,6 +293,17 @@ const Map<DemoPage, _DemoPageMeta> _demoPageMeta = <DemoPage, _DemoPageMeta>{
     status: 'STABLE',
     exampleCount: 3,
     tags: <String>['badge', 'status', 'label'],
+  ),
+  DemoPage.inlineBanner: _DemoPageMeta(
+    section: 'SUPERFICIES',
+    description:
+        'Aviso inline para mensajes contextuales dentro de contenido y formularios.',
+    selector: 'fd-ui-inline-banner',
+    widgetClass: 'FadingInlineBanner',
+    category: 'Superficies',
+    status: 'STABLE',
+    exampleCount: 2,
+    tags: <String>['banner', 'inline', 'status', 'alert'],
   ),
 };
 

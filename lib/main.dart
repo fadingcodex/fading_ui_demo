@@ -595,6 +595,14 @@ class _FadingDemoAppState extends State<FadingDemoApp> {
             'badge-length',
           },
         );
+      case DemoPage.inlineBanner:
+        return _InlineBannerPage(
+          page: _activePage,
+          visibleSections: const <String>{
+            'inline-banner-default',
+            'inline-banner-action',
+          },
+        );
     }
   }
 }
